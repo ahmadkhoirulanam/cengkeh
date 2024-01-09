@@ -96,7 +96,7 @@ if (!count($data)) {
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">Pesebaran Cengkeh Pemalang</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Explore More</a>
+                                    <a href="#gis" class="btn btn-primary py-sm-3 px-sm-4">Pesebaran Cengkeh</a>
                                 </div>
                             </div>
                         </div>
@@ -358,99 +358,107 @@ if (!count($data)) {
         </div>
     </div>
 
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="berita">
+            <div class="container">
+                <div class="text-center">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Berita <?php echo $data['nama_desa']; ?></h5>
+                    <h1 class="mb-5">Berita Unggulan</h1>
+                </div>
+                <div class="owl-carousel testimonial-carousel">
+                    <!-- <?php
+                    // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                    $query = "SELECT * FROM produk_unggulan";
+                    $result = mysqli_query($konek, $query);
+                    //mengecek apakah ada error ketika menjalankan query
+                    if (!$result) {
+                        die("Query Error: " . mysqli_errno($konek) .
+                            " - " . mysqli_error($konek));
+                    }
 
-    <!-- Projects Start -->
-    <div class="container-xxl py-5" id="berita" >
+                    //buat perulangan untuk element tabel dari data mahasiswa
+                    $no = 1; //variabel untuk membuat nomor urut
+                    // hasil query akan disimpan dalam variabel $data dalam bentuk array
+                    // kemudian dicetak dengan perulangan while
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                        <div class="testimonial-item bg-transparent border rounded p-4">
+                            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                            
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded-circle" src="demo1/gambar/<?php echo $row['foto']; ?>" style="width: 200px; height: 200px;">
+                                <div class="ps-3">
+                                    <h5 class="mb-1"><?php echo $row['nama_unggulan']; ?></h5>
+                                    <small>Profession</small>
+                                </div>
+                            </div>
+                            <?php
+                            $d = $row['keterangan'];
+                            ?>
+                            <p><?php echo $d; ?></p>
+                        </div>
+
+                    <?php
+                        $no++; //untuk nomor urut terus bertambah 1
+                    }
+                    ?> -->
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-bold text-primary">Our Projects</p>
-                <h1 class="display-5 mb-5">Berita Seputar Pemalang</h1>
-            </div>
-            <div class="row wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-12 text-center">
-                    <ul class="list-inline rounded mb-5" id="portfolio-flters">
-                        <li class="mx-2 active" data-filter="*">All</li>
-                        <li class="mx-2" data-filter=".first">Complete Projects</li>
-                        <li class="mx-2" data-filter=".second">Ongoing Projects</li>
-                    </ul>
+            <div class="row g-5">
+                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="fs-5 fw-bold text-primary">Kabar Pemalang</p>
+                    <h1 class="display-5 mb-5">Berita Terbaru seputar pemalang</h1>
+                    <p class="mb-4">Dapatkan informasi mengenai kabupaten Pemalang secara akurat disini</p>
+                    <a class="btn btn-primary py-3 px-4" href="#">Lihat Lainnya</a>
                 </div>
-            </div>
-            <div class="row g-4 portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="webcengkeh/img/service-1.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Landscaping</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
+                <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="owl-carousel testimonial-carousel">
+                    <?php
+                    // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                    $query = "SELECT * FROM produk_unggulan";
+                    $result = mysqli_query($konek, $query);
+                    //mengecek apakah ada error ketika menjalankan query
+                    if (!$result) {
+                        die("Query Error: " . mysqli_errno($konek) .
+                            " - " . mysqli_error($konek));
+                    }
+
+                    //buat perulangan untuk element tabel dari data mahasiswa
+                    $no = 1; //variabel untuk membuat nomor urut
+                    // hasil query akan disimpan dalam variabel $data dalam bentuk array
+                    // kemudian dicetak dengan perulangan while
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                       
+                        <div class="testimonial-item">
+                            <img class="img-fluid rounded mb-3" src="demo1/gambar/<?php echo $row['foto']; ?>" alt="">
+                            <p class="fs-5"><?php echo $d; ?></p>
+                            <h4><?php echo $row['nama_unggulan']; ?></h4>
+                            <span>#berita</span>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="webcengkeh/img/service-2.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Pruning plants</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="webcengkeh/img/service-3.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Irrigation & Drainage</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="webcengkeh/img/service-4.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Garden Maintenance</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-4.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="webcengkeh/img/service-5.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Green Technology</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-5.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="webcengkeh/img/service-6.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Urban Gardening</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
+
+                    <?php
+                        $no++; //untuk nomor urut terus bertambah 1
+                    }
+                    ?>
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!-- Projects Start -->
+    
     <!-- Projects End -->
 
 
@@ -545,9 +553,9 @@ if (!count($data)) {
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <p class="fs-5 fw-bold text-primary">Contact Us</p>
-                    <h1 class="display-5 mb-5">If You Have Any Query, Please Contact Us</h1>
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <p class="fs-5 fw-bold text-primary">Hubungi Kami Us</p>
+                    <h1 class="display-5 mb-5">Kabupaten Pemalang</h1>
+                    <p class="mb-4">Pemalang adalah kabupaten di provinsi Jawa Tengah, Indonesia. Kabupaten Pemalang berada di jalur utama lintas utara Jawa yang menghubungkan Jakarta–Semarang–Surabaya. Ibukota kabupaten-nya terletak di kota Pemalang.</p>
                    
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
@@ -561,7 +569,7 @@ if (!count($data)) {
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <!-- <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -602,7 +610,7 @@ if (!count($data)) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Footer End -->
 
 

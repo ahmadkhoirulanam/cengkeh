@@ -30,7 +30,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/Pemalang_0.js"></script>
+        <script src="data/LapakGIScomBatas_Kecamatan_BIG_PPBW_0.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -50,7 +50,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:10
-        })
+        }).fitBounds([[-7.2436978863,108.878654603],[-6.74296492373,109.876128352]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -60,11 +60,8 @@
         });
         basemap0.addTo(map);
         function setBounds() {
-            if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
-            }
         }
-        function pop_Pemalang_0(feature, layer) {
+        function pop_LapakGIScomBatas_Kecamatan_BIG_PPBW_0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -93,18 +90,14 @@
                         <th scope="row">Produksi</th>\
                         <td>' + (feature.properties['Produksi'] !== null ? Autolinker.link(String(feature.properties['Produksi'])) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <th scope="row">Kluster</th>\
-                        <td>' + (feature.properties['Kluster'] !== null ? Autolinker.link(String(feature.properties['Kluster'])) : '') + '</td>\
-                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Pemalang_0_0(feature) {
+        function style_LapakGIScomBatas_Kecamatan_BIG_PPBW_0_0(feature) {
             if (feature.properties['Lahan'] >= 0.000000 && feature.properties['Lahan'] <= 8.000000 ) {
                 return {
-                pane: 'pane_Pemalang_0',
+                pane: 'pane_LapakGIScomBatas_Kecamatan_BIG_PPBW_0',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -118,7 +111,7 @@
             }
             if (feature.properties['Lahan'] >= 8.000000 && feature.properties['Lahan'] <= 164.000000 ) {
                 return {
-                pane: 'pane_Pemalang_0',
+                pane: 'pane_LapakGIScomBatas_Kecamatan_BIG_PPBW_0',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -132,7 +125,7 @@
             }
             if (feature.properties['Lahan'] >= 164.000000 && feature.properties['Lahan'] <= 1034.000000 ) {
                 return {
-                pane: 'pane_Pemalang_0',
+                pane: 'pane_LapakGIScomBatas_Kecamatan_BIG_PPBW_0',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -145,40 +138,40 @@
             }
             }
         }
-        map.createPane('pane_Pemalang_0');
-        map.getPane('pane_Pemalang_0').style.zIndex = 400;
-        map.getPane('pane_Pemalang_0').style['mix-blend-mode'] = 'normal';
-        var layer_Pemalang_0 = new L.geoJson(json_Pemalang_0, {
+        map.createPane('pane_LapakGIScomBatas_Kecamatan_BIG_PPBW_0');
+        map.getPane('pane_LapakGIScomBatas_Kecamatan_BIG_PPBW_0').style.zIndex = 400;
+        map.getPane('pane_LapakGIScomBatas_Kecamatan_BIG_PPBW_0').style['mix-blend-mode'] = 'normal';
+        var layer_LapakGIScomBatas_Kecamatan_BIG_PPBW_0 = new L.geoJson(json_LapakGIScomBatas_Kecamatan_BIG_PPBW_0, {
             attribution: '<a href=""></a>',
-            pane: 'pane_Pemalang_0',
-            onEachFeature: pop_Pemalang_0,
-            style: style_Pemalang_0_0,
+            pane: 'pane_LapakGIScomBatas_Kecamatan_BIG_PPBW_0',
+            onEachFeature: pop_LapakGIScomBatas_Kecamatan_BIG_PPBW_0,
+            style: style_LapakGIScomBatas_Kecamatan_BIG_PPBW_0_0,
         });
-        bounds_group.addLayer(layer_Pemalang_0);
-        map.addLayer(layer_Pemalang_0);
+        bounds_group.addLayer(layer_LapakGIScomBatas_Kecamatan_BIG_PPBW_0);
+        map.addLayer(layer_LapakGIScomBatas_Kecamatan_BIG_PPBW_0);
         setBounds();
         var i = 0;
-        layer_Pemalang_0.eachLayer(function(layer) {
+        layer_LapakGIScomBatas_Kecamatan_BIG_PPBW_0.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Kecamatan'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Kecamatan']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Pemalang_0'});
+            layer.bindTooltip((layer.feature.properties['Kecamatan'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Kecamatan']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LapakGIScomBatas_Kecamatan_BIG_PPBW_0'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Pemalang_0]);
+        resetLabels([layer_LapakGIScomBatasKecamatanBIGPPBW_0]);
         map.on("zoomend", function(){
-            resetLabels([layer_Pemalang_0]);
+            resetLabels([layer_LapakGIScomBatasKecamatanBIGPPBW_0]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Pemalang_0]);
+            resetLabels([layer_LapakGIScomBatasKecamatanBIGPPBW_0]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Pemalang_0]);
+            resetLabels([layer_LapakGIScomBatasKecamatanBIGPPBW_0]);
         });
         </script>
     </body>

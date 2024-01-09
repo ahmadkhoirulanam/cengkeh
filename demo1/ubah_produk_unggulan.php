@@ -73,7 +73,7 @@ if (isset($_GET['id'])) {
             <form method="POST" action="proses_edit_produk_unggulan.php" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">UBAH Produk Unggulan</div>
+                        <div class="card-title">UBAH BERITA</div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -82,15 +82,15 @@ if (isset($_GET['id'])) {
 
                                 <input name="id" value="<?php echo $id; ?>" hidden />
                                 <div class="form-group">
-                                    <label>Nama Produk Unggulan</label>
+                                    <label>Nama Berita</label>
                                     <input type="text" name="nama" class="form-control" value="<?php echo $data['nama_unggulan']; ?>" autofocus="" required="" />
                                 </div>
                                 <div class="form-group">
-                                    <label>Keterangan</label>
+                                    <label>Keterangan/Deskripsi</label>
                                     <input type="text" name="id_jenis_unggulan" class="form-control" required="" value="<?php echo $data['keterangan']; ?>" />
                                 </div>
                                 <div class="form-group">
-                                    <label>Gambar Produk Unggulan</label>
+                                    <label>Gambar</label><br>
                                     <img src="gambar/<?php echo $data['foto']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
                                     <input type="file" name="gambar_produk" class="form-control" />
                                     <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar produk</i>

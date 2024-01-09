@@ -85,10 +85,10 @@
                                 $hasil_euclid[$j] = hitung_euclidean_distance($dataset[$i], $centroid[$j], $banyak_kolom);
                             }
                             // print_r($hasil_euclid);
-                            // echo "<br/>";
+                          
                             $nilai_terkecil = min($hasil_euclid);
                             // print_r($nilai_terkecil);
-                            // echo "<br/>";
+                         
                             $index_nilai_terkecil = array_search($nilai_terkecil, $hasil_euclid);
                             // print_r($index_nilai_terkecil);
                             // $label_cluster[$i] = $index_nilai_terkecil;
@@ -136,20 +136,24 @@
 
                         echo "<table class='display table table-striped table-hover'";
                         echo "<tr>";
-                        echo "<th>Data Ke</th>";
+                        echo "<th>Kecamatan</th>";
+                        echo "<th>Luas Lahan</th>";
+                        echo "<th>Jumlah Produksi</th>";
                         echo "<th>Label Cluster</th>";
                         echo "</tr>";
 
-                        $connection = mysqli_connect("localhost", "root", "", "cengkeh");
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $database = "cengkeh";
 
-                        if (!$connection) {
-                            die("Connection failed: " . mysqli_connect_error());
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $database);
+
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
                         }
-
-                        // Assuming you have a query to fetch data from your database
-                        
-                        // Close the MySQL connection
-                        mysqli_close($connection);
 
                         // Now, use the fetched data in your loop
                         $banyak_dataset = count($dataset_label);
@@ -157,16 +161,27 @@
                         for ($i = 0; $i < $banyak_dataset; $i++) {
                             echo "<tr>";
                             // Output data from the database
-                            echo "<td>" . $dataset_label[$i] . "</td>";
+                            $sql = "SELECT * FROM `pemalang` LIMIT 1 OFFSET $i"; // Adjust the query as per your database schema
+                            $result = $conn->query($sql);
+
+                            // Output data from the database
+                            if ($result->num_rows > 0) {
+                                $row = $result->fetch_assoc();
+                                echo "<td>" . $row['kecamatan'] . "</td>";
+                                echo "<td>" . $row['tanah'] . "</td>";
+                                echo "<td>" . $row['produksi'] . "</td>";
+                            } else {
+                                echo "<td>No data</td>";
+                            }
                             
                             // Check the value of $dataset_label[$i] and display corresponding text
                             if ($dataset_label[$i] == 0) {
-                                echo "<td>Baik</td>";
+                                echo "<td><span class='badge badge-success' style='width: 80px;'>Baik</span></td>";
                             } elseif ($dataset_label[$i] == 1) {
-                                echo "<td>Cukup</td>";
+                                echo "<td><span class='badge badge-warning' style='width: 80px;'>Cukup</span></td>";
                             } else {
                                 // You can add additional conditions or a default case here
-                                echo "<td>Buruk</td>";
+                                echo "<td><span class='badge badge-danger' style='width: 80px;'>Buruk</span></td>";
                             }
 
                             echo "</tr>";
@@ -192,7 +207,7 @@
 
                         $centroid_temp = $centroid;
 
-                        echo "<br/>";
+                        
                     }
 
                     print_hasil_cluster($dataset_label, $dataset, $banyak_dataset); // Menampilakn Hasil Cluster
